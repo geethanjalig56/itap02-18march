@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR Drill Request Form</title>
+    <link rel="stylesheet" href="./css/NewApplication.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="./css/random.css"/>
+</head>
+
+
+<div class="container">
+	<h1>IT ASSET MAINTENANCE</h1> 
+    <h2>DR Drill Request Form</h2>
+ <form action="/save" method="post">
+		<div class="form-group">
+            <label for="planned">Planned</label>
+            <select id="planned" name="planned" >
+                <option value="" selected disabled>--select--</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="appName">Application Name</label>
+            <select id="appName" name="appName" onchange="getappdetails()">
+                <option value="" selected disabled>--select--</option>
+                <option th:each="appname:${appnamelist}" th:text="${appname}" th:value="${appname}" ></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="application-developer">Application Developer</label>
+            <input type="text" id="appdev" name="appdev" readonly >
+        </div>
+        <div class="form-group">
+            <label for="application-owner">Application Owner</label>
+             <input type="text" id="appowner" name="appowner" readonly >
+        </div>
+        <div class="form-group">
+            <label for="owner-department">Owner Department</label>
+            <input type="text" id="owndept" name="owndept" readonly>
+        </div>
+        <div class="form-group">
+            <label for="critical">Critical</label>
+           <input type="text" id="critical" name="critical" readonly>
+        </div>
+        <div class="form-group">
+            <label for="start-date">Start Date</label>
+            <input type="date" id="sdate" name="sdate" placeholder="Select start date" class="datepicker">
+        </div>
+        <div class="form-group">
+            <label for="end-date">End Date</label>
+            <input type="date" id="edate" name="edate" placeholder="Select end date" class="datepicker">
+        </div>
+        <div class="form-group">
+            <label for="start-time">Start Time</label>
+            <input type="time" id="stime" name="stime" placeholder="Select start time" class="datepicker">
+        </div>
+        <div class="form-group">
+            <label for="end-date">End Time</label>
+            <input type="time" id="etime" name="etime" placeholder="Select end time" class="datepicker">
+        </div>
+
+ <br> <br>
+    <hr>
+ <br> 	
+        <h4>IMPACTED APPLICATION DURING DOWNTIME</h4>
+    <div class="form-group1">
+	    <div class="column" id="one">
+	        <label for="internetNO">Internal Application</label>
+	        <select class="js-select2" id="internetNO" name="internetNO" multiple="multiple">
+	            <option value="" disabled>--select--</option>
+	            <option value="">app 1</option>
+	            <option value="">app 2</option>
+	        </select>
+	    </div>
+  	   <div class="column" id="two">
+	        <label for="internetYES">External Customer Facing Application</label>
+	        <select class="js-select2" id="internetYES" name="internetYES" multiple="multiple">
+	            <option value=""  disabled>--select--</option>
+	            <option value="">app 1</option>
+	            <option value="">app 2</option>
+	        </select>
+    	</div>
+	</div>
+	
+	<div class="form-group1">
+		<div class="column">
+			<label for="activity">Activity</label>
+			<textarea id="activity" name="activity" rows="10" cols="65.9"></textarea>
+		</div>
+		<div class="column">
+			<label for="remarks">Remarks</label>
+			<textarea id="activity" name="activity" rows="10" cols="65.9"></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="form-group1">
+		<div class="column1">
+			<label for="customerImpact">Customer Impact</label> 
+		 	<select id="customerImpact" name="customerImpact" >
+                <option value="" selected disabled>--Select YES/NO--</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+        	 </select>
+		</div>
+	</div>
+	
+	<div class="form-group3" >
+			<div class="date" >
+          		<label for="cstartdate">Customer Start Date</label>
+          		<input type="date" id="cstartdate" name="cstartdate"  class="datepicker">
+       		</div>
+       		
+       		<div class="date">
+	            <label for="cenddate">Customer End Date</label>
+	            <input type="date" id="cenddate" name="cenddate"  class="datepicker">
+      		</div>
+      		
+      		<div class="starttime">
+            	<label for="cstarttime">Customer Start Time</label>
+            	<input type="time" id="cstarttime" name="cstarttime"  class="datepicker">
+        	</div>
+        	<div class="endtime">
+            	<label for="cendtime">Customer End Time</label>
+            	<input type="time" id="cendtime" name="cendtime" class="datepicker">
+        	</div>
+      	</div>
+	
+	
+	<div class="form-group1">
+		<div class="column2" >
+			<label for="contact">Point of Contact</label>
+			<select class="js-select2" id="contact" name="contact" multiple >
+                <option value=""  disabled>Multiselect Dropdown</option>
+                <option value="contact1">contact1</option>
+                <option value="contact2">contact2</option>
+        	 </select>
+		</div>
+		<div class="column3">
+			<label for="notifyDept">Department to be notified</label>
+			<select id="notifyDept" name="notifyDept">
+				  <option value="" selected disabled>-SELECT-</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+			</select>
+		</div>
+		<div class="column4">
+			<label for="depts">Name of Departments</label>
+			<select class="js-select2" name="depts" id="depts" multiple="multiple">
+	            <option value=""  disabled>-multiselect dropdown-</option>
+	            <option value="dept1">dept 1</option>
+	            <option value="dept2">dept 2</option>
+	        </select>
+		</div>
+	</div>
+	
+
+	<div class="form-group">
+		<label for="addEmail">Additional Emails(Optional)</label>
+		<textarea id="activity" name="activity" rows="10" cols="135"></textarea>
+	</div>
+
+			<div class="button1">
+			<div class="bt1">
+				<input type="submit" value="Submit" >
+				</form>
+			</div>	&nbsp;
+			<div class="bt2"> 
+				<form action="/reqhome" method="post"> 
+				<input type="submit" value="Go back">	
+			</form>	
+			</div>	  	
+		</div>
+</div>
+
+<script>
+	// custom.js
+
+function getappdetails() {
+    var appName = document.getElementById("appName").value;
+    // Make an AJAX request to fetch the developer
+    $.ajax({
+        type: "GET",
+        url: "/getappdeveloper",
+        data: { appname: appName },
+        success: function (response) {
+            // Update the value of the developer input field
+            document.getElementById("appdev").value = response;
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+}
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<script src="./js/random.js"></script>
+</body>
+</html>

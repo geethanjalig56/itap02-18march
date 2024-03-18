@@ -1,0 +1,113 @@
+  body {
+            font-family: Arial, sans-serif;
+    		background-color: rgb(216, 230, 254);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 70%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+             text-align:  center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+         .container h1 {
+            color:darkblue;
+            text-align:center;
+            font-size: 50px;
+             font-weight:normal;
+             margin-top: 0%;
+            margin-bottom: 30px;
+            font-family: 'Times New Roman';
+        }
+        .container h3 {
+            text-align: center;
+            color:indigo;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input {
+            width: 50%;
+            padding: 8px;
+         
+           
+        }
+     
+        
+      
+		img 
+		{
+			height: 60px;
+			width:177px;	
+			margin-top: -.1%;
+			margin-left: -.1%;
+		}
+		.header {
+			text-align: right;
+   			font-family:Verdana;
+   			font-weight: bold;
+   			color:darkblue;
+   			margin-right:10px;
+   	
+		}
+		.header h5{
+			text-align: left;
+			margin-top: -9px;
+		}
+
+		.header::before {
+  content: "";
+    position: absolute;
+    top: 3%;
+    left: 73.5%; /* Adjust based on the desired position */
+    height: 10.9%;
+    width: 1px; /* Adjust based on the thickness of the line */
+    background-color: black; /* Adjust based on the color of the line */
+ 
+}
+
+		.first {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+		}
+			
+			.form-group2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px; /* Move the margin here */
+    margin-bottom: 20px;
+}
+
+.drreq{
+	margin-left: 35px;
+}
+.drstat{
+	margin-right: 35px;
+}
+.drreq, .drstat {
+    width: 45%;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    border: 1px solid #ccc; /* Apply border to the buttons */
+    padding: 15px;
+    background-color: indigo;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+  
+    
+}
+
+  .form-group2 input[type="submit"]
+        {
+			 background-color: indigo;
+    color: white;
+    cursor: pointer;
+    border: none;
+		}
+		

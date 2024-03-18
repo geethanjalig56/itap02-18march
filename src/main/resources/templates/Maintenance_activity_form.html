@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Activity Form</title>
+    <link rel="stylesheet" href="./css/Maintenance_activity_form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="./css/random.css"/>
+</head>
+
+
+<div class="container">
+	<h1>IT ASSET MAINTENANCE</h1> 
+    <h2> Maintenance Activity Form</h2>
+ <div action="#" th:action="@{/submit}" th:object="${form}" method="post">
+		<div class="form-group">
+            <label for="maintenance">Schedule Maintenance</label>
+            <select id="maintenance" name="maintenance">
+                <option value="" selected disabled>--select--</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+	            <label for="assetType">Asset Type</label>
+	            <select id="assetType" name="assetType" >
+	                <option value="" selected disabled>--select--</option>
+	                <option value="APPLICATION">Application</option>
+	                <option value="SERVER">Server</option>
+	                <option value="NETWORK DEVICES">Network Devices</option>
+	                <option value="SECURITY DEVICES">Security Devices</option>
+	            </select>
+	    </div>
+	        <div class="form-group">
+	            <label for="assetName">Asset Name</label>
+	            <select id="assetName" name="assetName" >
+	                <option value="" selected disabled>--select--</option>
+	                <option value="assetname1">Asset type1</option>
+	                <option value="assetname2">Asset type 2</option>
+	            </select>
+	        </div> 
+	      
+	        <div class="form-group">
+	            <label for="assetOwner">Asset Owner</label>
+	             <input type="text" id="assetOwner" name="assetOwner" >
+	        </div>
+</div>
+
+        <div class="form-group3" >
+			<div class="date" >
+          		<label for="start-date">Start Date</label>
+          		<input type="date" id="sdate" name="sdate"  class="datepicker">
+       		</div>
+       		
+       		<div class="date">
+	            <label for="end-date">End Date</label>
+	            <input type="date" id="edate" name="edate"  class="datepicker">
+      		</div>
+      		
+      		<div class="starttime">
+            	<label for="start-time">Start Time</label>
+            	<input type="time" id="stime" name="stime"  class="datepicker">
+        	</div>
+        	<div class="endtime">
+            	<label for="end-time">End Time</label>
+            	<input type="time" id="etime" name="etime" class="datepicker">
+        	</div>
+      	</div>
+      	<div class="form-group">
+			<label for="activityDesc">Activity Description</label>
+			<textarea id="activityDesc" name="activityDesc" rows="10" cols="135"></textarea>
+		</div>
+			
+    <div class="form-group1">
+	    <div class="column" id="one">
+	        <label for="">Impacted Solution Internal</label>
+	        <select id="impactedSolInternal" name="impactedSolInternal" multiple>
+	            <option value="" selected disabled>--select--</option>
+	            <option value="">app 1</option>
+	            <option value="">app 2</option>
+	        </select>
+	    </div>
+  	   <div class="column" id="two">
+	        <label for="pointOfContact">Point of Contact</label>
+	        <select id="pointOfContact" name="pointOfContact" multiple>
+	            <option value="" selected disabled>--select--</option>
+	            <option value="">app 1</option>
+	            <option value="">app 2</option>
+	        </select>
+    	</div>
+    	
+	</div>
+		<div class="form-group1">
+		<div class="column1">
+			<label for="customerImpact">Customer Impact</label> 
+		 	<select id="customerImpact" name="customerImpact" >
+                <option value="" selected disabled>--Select YES/NO--</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+        	 </select>
+		</div>
+	</div> <br>
+	
+	<div class="form-group3" >
+			<div class="date" >
+          		<label for="cstartdate">Customer Start Date</label>
+          		<input type="date" id="cstartdate" name="cstartdate"  class="datepicker">
+       		</div>
+       		
+       		<div class="date">
+	            <label for="cenddate">Customer End Date</label>
+	            <input type="date" id="cenddate" name="cenddate"  class="datepicker">
+      		</div>
+      		
+      		<div class="starttime">
+            	<label for="cstarttime">Customer Start Time</label>
+            	<input type="time" id="cstarttime" name="cstarttime"  class="datepicker">
+        	</div>
+        	<div class="endtime">
+            	<label for="cendtime">Customer End Time</label>
+            	<input type="time" id="cendtime" name="cendtime" class="datepicker">
+        	</div>
+      	</div>
+    <div class="form-group1">
+	    <div class="customerimpactsol" id="one">
+	        <label for="internetNO">Customer Impacted Solution</label>
+	        <select class="js-select2" name="customerImpactSol" id="customerImpactSol" multiple="multiple">
+	            <option value=""  disabled>-multiselect dropdown-</option>
+	            <option value="app1">app 1</option>
+	            <option value="app2">app 2</option>
+	        </select>
+	    </div>
+	</div>
+	<div class="form-group">
+		<label for="customerImpact">Customer Impact Details</label>
+		<textarea id="customerImpactDetails" name="customerImpactDetails" rows="10" cols="135"></textarea>
+	</div>
+	
+	<div class="form-group1">	
+		<div class="column3">
+			<label for="notifyDept">Department to be notified</label>
+			<select id="notifyDept" name="notifyDept" >
+				  <option value="" selected disabled>--Select YES/NO--</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+			</select>
+		</div>
+		<div class="column4">
+			<label for="depts">Name of Department</label>
+			<select class="js-select2" id="depts" name="depts" multiple="multiple">
+                <option value=""  disabled >Multiselect Dropdown</option>
+                <option value="dept1">dept1</option>
+                <option value="dept2">dept2</option>
+        	 </select>
+		</div>
+	</div>
+	
+
+	<div class="form-group1">
+		<div class="column">
+			<label for="otherDetails">Other Details (OPTIONAL)</label>
+			<textarea id="otherDetails" name="otherDetails" rows="10" cols="65.9"></textarea>
+		</div>
+		<div class="column">
+			<label for="remarks">Additional Emails</label>
+			<textarea id="addEmails" name="addEmails" rows="10" cols="65.9"></textarea>
+		</div>
+	</div>
+	
+    <div class="row">
+        <h4>Multi-select Dropdown</h4>
+        <div class="prop">
+        <select class="js-select2" multiple="multiple" id="options01">
+            <option value="O1">Option 1</option>
+            <option value="O2">Option 2</option>
+            <option value="O3">Option 3</option>
+            <option value="O4">Option 4</option>
+            <option value="O5">Option 5</option>
+            <option value="O6">Option 6</option>
+            <option value="O7">Option 7</option>
+        </select>
+        </div>
+    </div>
+
+
+		<div class="button1">
+			<div class="bt1">
+				<input type="submit" value="Submit" >
+				</form>
+			</div> &nbsp;
+			<div class="bt2"> 
+				<form action="/reqhome" method="post"> 
+				<input type="submit" value="Go back">	
+			</form>	
+			</div>	  	
+		</div>
+		
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<script src="./js/random.js"></script>
+</body>
+</html>

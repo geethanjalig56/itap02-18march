@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITAP - Requestor</title>
+     <link rel="stylesheet" href="./css/ReqHomePage.css">
+
+</head>
+<body>
+	
+	<div class="first" >
+		<div class="logo">
+			<img src="./images/federal_logo.png"	 alt="fedlogo" >
+		</div>
+		<div class="header">
+			<h4>ADITYA NISHANTH REGINOLD(IT)</h4>
+			<h5>REQUESTOR</h5>
+		</div>
+	</div>
+	
+	
+
+
+<div class="container">
+	<h3>Welcome to Federal Bank</h3>
+    <h1>IT ASSET MAINTENANCE</h1> <br>
+
+    	<div class="form-group2">
+			<div class="drreq">
+				<form action="/drr" method="post">
+				<input type="submit" value="DR Drill Request" >
+			</form>
+			</div>
+			<div class="drstat">
+				<form action="drStat" method="post">
+				<input type="submit" value="DR Drill Status" >
+			</form>
+			</div>
+		</div>           
+			 <div class="form-group2">
+				 <div class="drreq"> 
+					 <form action="/ma" method="post">  
+						<input type="submit" value="Maintenance Activity">	
+		 			</form> 
+				 </div>
+				 <div class="drstat">
+					 <form action="/maStat" method="post">  
+           				 <input type="submit" value="Maintenance Activity Status">
+           			</form>
+           		</div>
+      		</div>
+      		
+    
+   <br>
+	
+    
+</div>
+
+</body>
+</html>
